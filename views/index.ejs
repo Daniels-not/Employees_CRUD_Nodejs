@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+    <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- Boxicons CSS -->
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <title>Employees</title>
+    </head>
+    <body>
+                <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                    <div class="container-fluid">
+                    <a class="navbar-brand" href="/"><i class='bx bxs-bar-chart-alt-2 mx-2'></i>Employee Manager</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    </div>
+                </nav>
+
+        <div class="mx-4 mx-lg-3 mx-sm-0">
+            <a href="/create" class="btn btn-outline-primary mt-4 mb-3"><i class='bx bxs-user-plus bx-md'></i></a>
+            <div class="table-responsive">
+                <table class="table table-hover align-middle table-dark">
+                    <thead class="table-light">
+                        <tr class="table-primary">
+                            <th scope="col">ID</th>
+                            <th scope="col">First Name</th>
+                            <th scope="col">Last Name</th>
+                            <th scope="col">Description</th>
+                            <th scope="col">Day added</th>
+                            <th scope="col">Update</th>
+                            <th scope="col">Delete</th>
+                        </tr>
+                    </thead>
+                    <% results.forEach(function(result) { %>
+                        <tbody>
+                            <tr class="table-light">
+                                <th scope="row"><%= result.Id %></th>
+                                <td><%= result.name %></td>
+                                <td><%= result.lastname %></td>
+                                <td><%= result.description %></td>
+                                <td><%= result.day %></td>
+                                <td>
+                                    <a href="/edit/<%= result.Id %>" class="btn btn-outline-warning"><i class='bx bxs-edit'></i></a></td>
+                                <td>
+                                    <a href="/delete/<%= result.id %>" class="btn btn-outline-danger"><i class='bx bxs-trash'></i></a></td>
+                            </tr>
+                    <% }) %>
+                        </tbody>
+                    </table>
+            </div>
+        </div>
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    </body>
+</html>
